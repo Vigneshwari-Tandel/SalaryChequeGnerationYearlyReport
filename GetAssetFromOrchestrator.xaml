@@ -1,0 +1,158 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="GetAssetFromOrchestrator" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ss="clr-namespace:System.Security;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="out_userPassword" Type="OutArgument(ss:SecureString)" />
+    <x:Property Name="out_userName" Type="OutArgument(x:String)" />
+    <x:Property Name="out_sendMailTo" Type="OutArgument(x:String)" />
+    <x:Property Name="out_sendMailCC" Type="OutArgument(x:String)" />
+    <x:Property Name="out_processName" Type="OutArgument(x:String)" />
+    <x:Property Name="out_sharePointURL" Type="OutArgument(x:String)" />
+    <x:Property Name="out_sharepointPassword" Type="OutArgument(ss:SecureString)" />
+    <x:Property Name="out_sharepointUserName" Type="OutArgument(x:String)" />
+    <x:Property Name="out_sharepointFolderPath" Type="OutArgument(x:String)" />
+    <x:Property Name="out_localFolderPath" Type="OutArgument(x:String)" />
+    <x:Property Name="out_smtpPortNumber" Type="OutArgument(x:Int32)" />
+    <x:Property Name="out_smtpServer" Type="OutArgument(x:String)" />
+    <x:Property Name="out_sharepointCreateFolderPath" Type="OutArgument(x:String)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1208,2821</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>GetAssetFromOrchestrator_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="31">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPathTeam.SharePoint</x:String>
+      <x:String>Microsoft.SharePoint.Client</x:String>
+      <x:String>UiPathTeam.SharePoint.Activities</x:String>
+      <x:String>System.Net</x:String>
+      <x:String>UiPathTeam.SharePoint.Activities.Libraries</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="60">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPathTeam.SharePoint</AssemblyReference>
+      <AssemblyReference>Microsoft.SharePoint.Client.Runtime</AssemblyReference>
+      <AssemblyReference>OfficeDevPnP.Core</AssemblyReference>
+      <AssemblyReference>Microsoft.SharePoint.Client</AssemblyReference>
+      <AssemblyReference>UiPathTeam.SharePoint.Activities</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="Get Asset values from the orchestrator and store them in arguments." DisplayName="GetAssetFromOrchestrator" sap:VirtualizedContainerService.HintSize="376,2756" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message - Get asset execution start" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Get Assets from orchestrator execution started.&quot;]" />
+    <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="PayrollAutomation_LocalFolderPath" DisplayName="Get Asset - Local folder path" FolderPath="Salary Cheque Generation" sap:VirtualizedContainerService.HintSize="334,137" sap2010:WorkflowViewState.IdRef="GetRobotAsset_6">
+      <ui:GetRobotAsset.Value>
+        <OutArgument x:TypeArguments="x:String">[out_localFolderPath]</OutArgument>
+      </ui:GetRobotAsset.Value>
+    </ui:GetRobotAsset>
+    <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Folder - Local folder path" sap:VirtualizedContainerService.HintSize="334,79" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[out_localFolderPath]" />
+    <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="PayrollAutomation_ProcessName" DisplayName="Get Asset - Process Name" FolderPath="Salary Cheque Generation" sap:VirtualizedContainerService.HintSize="334,137" sap2010:WorkflowViewState.IdRef="GetRobotAsset_5">
+      <ui:GetRobotAsset.Value>
+        <OutArgument x:TypeArguments="x:String">[out_processName]</OutArgument>
+      </ui:GetRobotAsset.Value>
+    </ui:GetRobotAsset>
+    <ui:LogMessage DisplayName="Log Message - Get Assets for Process Name, Local Folder Path" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Store assets for Process Name, Local Folder Path in arguments.&quot;]" />
+    <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="PayrollAutomation_SharepointURL" DisplayName="Get Asset - SharePoint URL" FolderPath="Salary Cheque Generation" sap:VirtualizedContainerService.HintSize="334,137" sap2010:WorkflowViewState.IdRef="GetRobotAsset_7">
+      <ui:GetRobotAsset.Value>
+        <OutArgument x:TypeArguments="x:String">[out_sharePointURL]</OutArgument>
+      </ui:GetRobotAsset.Value>
+    </ui:GetRobotAsset>
+    <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="PayrollAutomation_SharepointCredential" DisplayName="Get Credential - SharePoint  Credentials" FolderPath="Salary Cheque Generation" sap:VirtualizedContainerService.HintSize="334,79" sap2010:WorkflowViewState.IdRef="GetRobotCredential_2" Password="[out_sharepointPassword]" Username="[out_sharepointUserName]" />
+    <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="PayrollAutomation_SharepointFolderPath" DisplayName="Get Asset - SharePoint  Folder Path" FolderPath="Salary Cheque Generation" sap:VirtualizedContainerService.HintSize="334,137" sap2010:WorkflowViewState.IdRef="GetRobotAsset_8">
+      <ui:GetRobotAsset.Value>
+        <OutArgument x:TypeArguments="x:String">[out_sharepointFolderPath]</OutArgument>
+      </ui:GetRobotAsset.Value>
+    </ui:GetRobotAsset>
+    <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="PayrollAutomation_SharepointCreateFolderPath" DisplayName="Get Asset - SharepointCreateFolderPath" FolderPath="Salary Cheque Generation" sap:VirtualizedContainerService.HintSize="334,137" sap2010:WorkflowViewState.IdRef="GetRobotAsset_12">
+      <ui:GetRobotAsset.Value>
+        <OutArgument x:TypeArguments="x:String">[out_SharepointCreateFolderPath]</OutArgument>
+      </ui:GetRobotAsset.Value>
+    </ui:GetRobotAsset>
+    <ui:LogMessage DisplayName="Log Message - Get Assets for SharePoint Activities" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Store all assets for SharePoint activities in arguments.&quot;]" />
+    <ui:GetRobotCredential TimeoutMS="{x:Null}" sap2010:Annotation.AnnotationText="Get Credential for Email from orchestrator asset and store in Argument called out_userPassword and out_userName" AssetName="PayrollAutomation_EmailCredentials" DisplayName="Get Credential - Get email credentials" sap:VirtualizedContainerService.HintSize="334,136" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[out_userPassword]" Username="[out_userName]">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:GetRobotCredential>
+    <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="PayrollAutomation_MailRecipient" DisplayName="Get Asset - get asset for send mail to" FolderPath="Salary Cheque Generation" sap:VirtualizedContainerService.HintSize="334,137" sap2010:WorkflowViewState.IdRef="GetRobotAsset_1">
+      <ui:GetRobotAsset.Value>
+        <OutArgument x:TypeArguments="x:String">[out_sendMailTo]</OutArgument>
+      </ui:GetRobotAsset.Value>
+    </ui:GetRobotAsset>
+    <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="PayrollAutomation_MailRecipientCC" DisplayName="Get Asset - get asset for send mail as CC" FolderPath="Salary Cheque Generation" sap:VirtualizedContainerService.HintSize="334,137" sap2010:WorkflowViewState.IdRef="GetRobotAsset_2">
+      <ui:GetRobotAsset.Value>
+        <OutArgument x:TypeArguments="x:String">[out_sendMailCC]</OutArgument>
+      </ui:GetRobotAsset.Value>
+    </ui:GetRobotAsset>
+    <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="PayrollAutomation_SMTPPortNumber" DisplayName="Get Asset" FolderPath="Salary Cheque Generation" sap:VirtualizedContainerService.HintSize="334,137" sap2010:WorkflowViewState.IdRef="GetRobotAsset_9">
+      <ui:GetRobotAsset.Value>
+        <OutArgument x:TypeArguments="x:Int32">[out_smtpPortNumber]</OutArgument>
+      </ui:GetRobotAsset.Value>
+    </ui:GetRobotAsset>
+    <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="PayrollAutomation_SMTPServer" DisplayName="Get Asset" FolderPath="Salary Cheque Generation" sap:VirtualizedContainerService.HintSize="334,137" sap2010:WorkflowViewState.IdRef="GetRobotAsset_10">
+      <ui:GetRobotAsset.Value>
+        <OutArgument x:TypeArguments="x:String">[out_smtpServer]</OutArgument>
+      </ui:GetRobotAsset.Value>
+    </ui:GetRobotAsset>
+    <ui:LogMessage DisplayName="Log Message - Get assets for sending mail." sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Store all assets for sending mail in arguments.&quot;]" />
+    <ui:LogMessage DisplayName="Log Message - Get asset execution end" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Get Assets from orchestrator execution ended.&quot;]" />
+  </Sequence>
+</Activity>
